@@ -1,7 +1,7 @@
-use clap::{Arg, ArgAction, Command, value_parser};
-use comfy_table::{Attribute, Cell, Color, ContentArrangement, Table};
+use clap::{value_parser, Arg, ArgAction, Command};
 use comfy_table::modifiers::UTF8_ROUND_CORNERS;
 use comfy_table::presets::UTF8_FULL;
+use comfy_table::{Attribute, Cell, Color, ContentArrangement, Table};
 
 use teapot::{HttpStatusCode, StatusCode, TeaPotApp};
 
