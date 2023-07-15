@@ -24,71 +24,80 @@ codes:
     name: OK
     code: 200
     description: The request has succeeded.
-    supplementary_description: "The payload sent in a 200 response depends on the request method. For the methods defined by this specification, the intended meaning of the payload can be summarized as:\n
-                                GET a representation of the target resource\n
-                                HEAD the same representation as GET, but without the representation data\n
-                                POST a representation of the status of, or results obtained from, the action;\n
-                                PUT DELETE a representation of the status of the action;\n
-                                OPTIONS a representation of the communications options;\n
-                                TRACE a representation of the request message as received by the end server.\n
-                                Aside from responses to CONNECT, a 200 response always has a payload, though an origin server MAY generate a payload body of zero length. If no payload is desired, an origin server ought to send 204 No Content instead. For CONNECT, no payload is allowed because the successful result is a tunnel, which begins immediately after the 200 response header section.
-                                A 200 response is cacheable by default; i.e., unless otherwise indicated by the method definition or explicit cache controls."
+    supplementary_description:
+      "The payload sent in a 200 response depends on the request method. For the methods defined by this specification, the intended meaning of the payload can be summarized as:\n
+      GET a representation of the target resource\n
+      HEAD the same representation as GET, but without the representation data\n
+      POST a representation of the status of, or results obtained from, the action;\n
+      PUT DELETE a representation of the status of the action;\n
+      OPTIONS a representation of the communications options;\n
+      TRACE a representation of the request message as received by the end server.\n
+      Aside from responses to CONNECT, a 200 response always has a payload, though an origin server MAY generate a payload body of zero length. If no payload is desired, an origin server ought to send 204 No Content instead. For CONNECT, no payload is allowed because the successful result is a tunnel, which begins immediately after the 200 response header section.
+      A 200 response is cacheable by default; i.e., unless otherwise indicated by the method definition or explicit cache controls."
     documentation_url: https://www.rfc-editor.org/rfc/rfc7231#section-6.3.1
 
   Created:
     name: Created
     code: 201
     description: The request has been fulfilled and has resulted in one or more new resources being created.
-    supplementary_description: "The primary resource created by the request is identified by either a Location header field in the response or, if no Location field is received, by the effective request URI.\n
-                                The 201 response payload typically describes and links to the resource(s) created. See Section 7.2 of RFC7231 for a discussion of the meaning and purpose of validator header fields, such as ETag and Last-Modified, in a 201 response."
+    supplementary_description:
+      "The primary resource created by the request is identified by either a Location header field in the response or, if no Location field is received, by the effective request URI.\n
+      The 201 response payload typically describes and links to the resource(s) created. See Section 7.2 of RFC7231 for a discussion of the meaning and purpose of validator header fields, such as ETag and Last-Modified, in a 201 response."
     documentation_url: https://tools.ietf.org/html/rfc7231#section-6.3.2
 
   Accepted:
     name: Accepted
     code: 202
     description: The request has been accepted for processing, but the processing has not been completed. The request might or might not eventually be acted upon, as it might be disallowed when processing actually takes place.
-    supplementary_description: "There is no facility in HTTP for re-sending a status code from an asynchronous operation.
-                                The 202 response is intentionally noncommittal. Its purpose is to allow a server to accept a request for some other process (perhaps a batch-oriented process that is only run once per day) without requiring that the user agent's connection to the server persist until the process is completed. The representation sent with this response ought to describe the request's current status and point to (or embed) a status monitor that can provide the user with an estimate of when the request will be fulfilled."
+    supplementary_description:
+      "There is no facility in HTTP for re-sending a status code from an asynchronous operation.
+      The 202 response is intentionally noncommittal. Its purpose is to allow a server to accept a request for some other process (perhaps a batch-oriented process that is only run once per day) without requiring that the user agent's connection to the server persist until the process is completed. The representation sent with this response ought to describe the request's current status and point to (or embed) a
+      status monitor that can provide the user with an estimate of when the request will be fulfilled."
     documentation_url: https://tools.ietf.org/html/rfc7231#section-6.3.3
 
   NonAuthoritativeInformation:
     name: Non Authoritative Information
     code: 203
     description: The request was successful but the enclosed payload has been modified from that of the origin server's 200 OK response by a transforming proxy.
-    supplementary_description: "This status code allows the proxy to notify recipients when a transformation has been applied, since that knowledge might impact later decisions regarding the content. For example, future cache validation requests for the content might only be applicable along the same request path (through the same proxies).\n
-                                The 203 response is similar to the Warning code of 214 Transformation Applied, which has the advantage of being applicable to responses with any status code.\n
-                                A 203 response is cacheable by default; i.e., unless otherwise indicated by the method definition or explicit cache controls."
+    supplementary_description:
+      "This status code allows the proxy to notify recipients when a transformation has been applied, since that knowledge might impact later decisions regarding the content. For example, future cache validation requests for the content might only be applicable along the same request path (through the same proxies).\n
+      The 203 response is similar to the Warning code of 214 Transformation Applied, which has the advantage of being applicable to responses with any status code.\n
+      A 203 response is cacheable by default; i.e., unless otherwise indicated by the method definition or explicit cache controls."
     documentation_url: https://www.rfc-editor.org/rfc/rfc7231#section-6.3.4
 
   NoContent:
     name: No Content
     code: 204
     description: The server has successfully fulfilled the request and that there is no additional content to send in the response payload body.
-    supplementary_description: "Metadata in the response header fields refer to the target resource and its selected representation after the requested action was applied.\n
-                                For example, if a 204 status code is received in response to a PUT request and the response contains an ETag header field, then the PUT was successful and the ETag field-value contains the entity-tag for the new representation of that target resource.
-                                The 204 response allows a server to indicate that the action has been successfully applied to the target resource, while implying that the user agent does not need to traverse away from its current 'document view' (if any). The server assumes that the user agent will provide some indication of the success to its user, in accord with its own interface, and apply any new or updated metadata in the response to its active representation\n
-                                For example, a 204 status code is commonly used with document editing interfaces corresponding to a 'save' action, such that the document being saved remains available to the user for editing. It is also frequently used with interfaces that expect automated data transfers to be prevalent, such as within distributed version control systems.
-                                A 204 response is terminated by the first empty line after the header fields because it cannot contain a message body.
-                                A 204 response is cacheable by default; i.e., unless otherwise indicated by the method definition or explicit cache controls."
+    supplementary_description:
+      "Metadata in the response header fields refer to the target resource and its selected representation after the requested action was applied.\n
+      For example, if a 204 status code is received in response to a PUT request and the response contains an ETag header field, then the PUT was successful and the ETag field-value contains the entity-tag for the new representation of that target resource.
+      The 204 response allows a server to indicate that the action has been successfully applied to the target resource, while implying that the user agent does not need to traverse away from its current 'document view' (if any). The server assumes that the user agent will provide some indication of the success to its user, in accord with its own interface, and apply any new or updated metadata in the response to its active representation\n
+      For example, a 204 status code is commonly used with document editing interfaces corresponding to a 'save' action, such that the document being saved remains available to the user for editing. It is also frequently used with interfaces that expect automated data transfers to be prevalent, such as within distributed version control systems.
+      A 204 response is terminated by the first empty line after the header fields because it cannot contain a message body.
+      A 204 response is cacheable by default; i.e., unless otherwise indicated by the method definition or explicit cache controls."
     documentation_url: https://www.rfc-editor.org/rfc/rfc7231#section-6.3.5
 
   ResetContent:
     name: Reset Content
     code: 205
     description: The server has fulfilled the request and desires that the user agent reset the 'document view', which caused the request to be sent, to its original state as received from the origin server.
-    supplementary_description: "This response is intended to support a common data entry use case where the user receives content that supports data entry (a form, notepad, canvas, etc.), enters or manipulates data in that space, causes the entered data to be submitted in a request, and then the data entry mechanism is reset for the next entry so that the user can easily initiate another input action.
-                                Since the 205 status code implies that no additional content will be provided, a server MUST NOT generate a payload in a 205 response. In other words, a server MUST do one of the following for a 205 response: a) indicate a zero-length body for the response by including a Content-Length header field with a value of 0; b) indicate a zero-length payload for the response by including a Transfer-Encoding header field with a value of chunked and a message body consisting of a single chunk of zero-length; or, c) close the connection immediately after sending the blank line terminating the header section."
+    supplementary_description:
+      "This response is intended to support a common data entry use case where the user receives content that supports data entry (a form, notepad, canvas, etc.), enters or manipulates data in that space, causes the entered data to be submitted in a request, and then the data entry mechanism is reset for the next entry so that the user can easily initiate another input action.
+      Since the 205 status code implies that no additional content will be provided, a server MUST NOT generate a payload in a 205 response. In other words, a server MUST do one of the following for a 205 response: a) indicate a zero-length body for the response by including a Content-Length header field with a value of 0; b) indicate a zero-length payload for the response by including a Transfer-Encoding header field with a value of chunked and a message body consisting of a single chunk of zero-length; or, c) close the connection
+      immediately after sending the blank line terminating the header section."
     documentation_url: https://www.rfc-editor.org/rfc/rfc7231#section-6.3.6
 
   PartialContent:
     name: Partial Content
     code: 206
     description: The server is successfully fulfilling a range request for the target resource by transferring one or more parts of the selected representation that correspond to the satisfiable ranges found in the request's Range header field.
-    supplementary_description: "The 206 (Partial Content) status code indicates that the server is
-                               successfully fulfilling a range request for the target resource by
-                               transferring one or more parts of the selected representation that
-                               correspond to the satisfiable ranges found in the request's Range
-                               header field"
+    supplementary_description:
+      "The 206 (Partial Content) status code indicates that the server is
+      successfully fulfilling a range request for the target resource by
+      transferring one or more parts of the selected representation that
+      correspond to the satisfiable ranges found in the request's Range
+      header field"
     documentation_url: https://tools.ietf.org/html/rfc7233#section-4.1
 
   MultiStatus:
@@ -96,6 +105,8 @@ codes:
     code: 207
     description: A Multi-Status response conveys information about multiple resources in situations where multiple status codes might be appropriate.
     supplementary_description:
+      "The HTTP 207 Multi-Status response code indicates that there might be a mixture of responses.
+      The response body is a text/xml or application/xml HTTP entity with a multistatus root element. The XML body will list all individual response codes."
     documentation_url: https://tools.ietf.org/html/rfc4918#section-13
 
   AlreadyReported:
@@ -103,6 +114,9 @@ codes:
     code: 208
     description: "Used inside: a DAV propstat response element to avoid enumerating the internal members of multiple bindings to the same collection repeatedly."
     supplementary_description:
+      "The HTTP 208 Already Reported response code is used in a 207 (207 Multi-Status) response to save space and avoid conflicts.
+      If the same resource is requested several times (for example as part of a collection), with different paths, only the first one
+      is reported with 200. Responses for all other bindings will report with this 208 status code, so no conflicts are created and the response stays shorter."
     documentation_url: https://tools.ietf.org/html/rfc5842#section-7.1
 
   IMUsed:
@@ -110,13 +124,18 @@ codes:
     code: 226
     description: The server has fulfilled a GET request for the resource, and the response is a representation of the result of one or more instance-manipulations applied to the current instance.
     supplementary_description:
+      "In the context of delta encodings, the HTTP 226 IM Used status code is set by the server to indicate that it is returning a delta to the GET request that it received.
+      With delta encoding a server responds to GET requests with differences (called deltas) relative to a given base document (rather than the current document).
+      The client uses the A-IM: HTTP header to indicate which differencing algorithm to use and the If-None-Match: header to hint the server about the last version it got.
+      The server generates a delta, sending it back in an HTTP response with the 226 status code and containing the IM: (with the name of the algorithm used) and
+      Delta-Base: (with the ETag matching the base document associated to the delta) HTTP headers."
     documentation_url: https://tools.ietf.org/html/rfc3229#section-10.4.1
 
   MultipleChoices:
     name: Multiple Choices
     code: 300
     description: The target resource has more than one representation, each with its own more specific identifier, and information about the alternatives is being provided so that the user (or user agent) can select a preferred representation by redirecting its request to one or more of those identifiers.
-    supplementary_description:
+    supplementary_description: "The HTTP 300 Multiple Choices redirect status response code indicates that the request has more than one possible response. The user-agent or the user should choose one of them. As there is no standardized way of choosing one of the responses, this response code is very rarely used."
     documentation_url: https://tools.ietf.org/html/rfc7231#section-6.4.1
 
   MovedPermanently:
@@ -124,6 +143,8 @@ codes:
     code: 301
     description: The target resource has been assigned a new permanent URI and any future references to this resource ought to use one of the enclosed URIs.
     supplementary_description:
+      "The HyperText Transfer Protocol (HTTP) 301 Moved Permanently redirect status response code indicates that the requested resource
+      has been definitively moved to the URL given by the Location headers. A browser redirects to the new URL and search engines update their links to the resource."
     documentation_url: https://tools.ietf.org/html/rfc7231#section-6.4.2
 
   Found:
@@ -131,6 +152,11 @@ codes:
     code: 302
     description: The target resource resides temporarily under a different URI. Since the redirection might be altered on occasion, the client ought to continue to use the effective request URI for future requests.
     supplementary_description:
+      "he HyperText Transfer Protocol (HTTP) 302 Found redirect status response code indicates that the resource requested has been temporarily moved to the URL given by the Location header.
+      A browser redirects to this page but search engines don't update their links to the resource (in 'SEO-speak', it is said that the 'link-juice' is not sent to the new URL).
+      Even if the specification requires the method (and the body) not to be altered when the redirection is performed, not all user-agents conform here - you can still find this type of bugged software out there.
+      It is therefore recommended to set the 302 code only as a response for GET or HEAD methods and to use 307 Temporary Redirect instead, as the method change is explicitly prohibited in that case.
+      In the cases where you want the method used to be changed to GET, use 303 See Other instead. This is useful when you want to give a response to a PUT method that is not the uploaded resource but a confirmation message such as: 'you successfully uploaded XYZ'."
     documentation_url: http://tools.ietf.org/html/rfc7231#section-6.4.3
 
   SeeOther:
@@ -138,6 +164,9 @@ codes:
     code: 303
     description: The server is redirecting the user agent to a different resource, as indicated by a URI in the Location header field, which is intended to provide an indirect response to the original request.
     supplementary_description:
+      "The HyperText Transfer Protocol (HTTP) 303 See Other redirect status response code indicates that the redirects don't link to the requested resource itself, but to another page
+      (such as a confirmation page, a representation of a real-world object — see HTTP range-14 — or an upload-progress page). This response code is often sent back as a result of PUT or POST. The method used to
+      display this redirected page is always GET."
     documentation_url: https://tools.ietf.org/html/rfc7231#section-6.4.4
 
   NotModified:
@@ -145,13 +174,16 @@ codes:
     code: 304
     description: A conditional GET or HEAD request has been received and would have resulted in a 200 OK response if it were not for the fact that the condition evaluated to false.
     supplementary_description:
+      "The HTTP 304 Not Modified client redirection response code indicates that there is no need to retransmit the requested resources.
+      It is an implicit redirection to a cached resource. This happens when the request method is a safe method, such as GET or HEAD, or when the request is conditional and uses an If-None-Match or an If-Modified-Since header.
+      The response must not contain a body and must include the headers that would have been sent in an equivalent 200 OK response: Cache-Control, Content-Location, Date, ETag, Expires, and Vary."
     documentation_url: https://tools.ietf.org/html/rfc7232#section-4.1
 
   UseProxy:
     name: Use Proxy
     code: 305
     description: Defined in a previous version of this specification and is now deprecated, due to security concerns regarding in-band configuration of a proxy.
-    supplementary_description:
+    supplementary_description: "The HTTP Status Code 305 means that the resource requested by the client is available only through a proxy, and that the address for the proxy is provided in the server's response"
     documentation_url: https://tools.ietf.org/html/rfc7231#section-6.4.5
 
   TemporaryRedirect:
@@ -159,6 +191,9 @@ codes:
     code: 307
     description: The target resource resides temporarily under a different URI and the user agent MUST NOT change the request method if it performs an automatic redirection to that URI.
     supplementary_description:
+      "HTTP 307 Temporary Redirect redirect status response code indicates that the resource requested has been temporarily moved to the URL given by the Location headers.
+      The method and the body of the original request are reused to perform the redirected request. In the cases where you want the method used to be changed to GET,
+      use 303 See Other instead. This is useful when you want to give an answer to a PUT method that is not the uploaded resources, but a confirmation message (like 'You successfully uploaded XYZ')."
     documentation_url: https://tools.ietf.org/html/rfc7231#section-6.4.7
 
   PermanentRedirect:
@@ -166,13 +201,15 @@ codes:
     code: 308
     description: The target resource has been assigned a new permanent URI and any future references to this resource ought to use one of the enclosed URIs.
     supplementary_description:
+      "The HyperText Transfer Protocol (HTTP) 308 Permanent Redirect redirect status response code indicates that the resource requested has been definitively moved to the URL given by the Location headers.
+      A browser redirects to this page and search engines update their links to the resource (in 'SEO-speak', it is said that the 'link-juice' is sent to the new URL)."
     documentation_url: https://tools.ietf.org/html/rfc7538#section-3
 
   BadRequest:
     name: Bad Request
     code: 400
     description: The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing).
-    supplementary_description:
+    supplementary_description: "The HyperText Transfer Protocol (HTTP) 400 Bad Request response status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error (for example, malformed request syntax, invalid request message framing, or deceptive request routing)."
     documentation_url: https://tools.ietf.org/html/rfc7231#section-6.5.1
 
   Unauthorized:
@@ -180,6 +217,9 @@ codes:
     code: 401
     description: The request has not been applied because it lacks valid authentication credentials for the target resource.
     supplementary_description:
+      "The HyperText Transfer Protocol (HTTP) 401 Unauthorized response status code indicates that the client request has not been completed because it lacks valid authentication credentials for the requested resource.
+      This status code is sent with an HTTP WWW-Authenticate response header that contains information on how the client can request for the resource again after prompting the user for authentication credentials.
+      This status code is similar to the 403 Forbidden status code, except that in situations resulting in this status code, user authentication can allow access to the resource."
     documentation_url: https://tools.ietf.org/html/rfc7235#section-3.1
 
   PaymentRequired:
@@ -187,6 +227,8 @@ codes:
     code: 402
     description: The 402 (Payment Required) status code is reserved for future use.
     supplementary_description:
+      "The HTTP 402 Payment Required is a nonstandard response status code that is reserved for future use. This status code was created to enable digital cash or (micro) payment systems and would indicate that the requested content is not available until the client makes a payment.
+      Sometimes, this status code indicates that the request cannot be processed until the client makes a payment. However, no standard use convention exists and different entities use it in different contexts."
     documentation_url: https://tools.ietf.org/html/rfc7231#section-6.5.2
 
   Forbidden:
@@ -194,6 +236,8 @@ codes:
     code: 403
     description: The server understood the request but refuses to authorize it.
     supplementary_description:
+      "The HTTP 403 Forbidden response status code indicates that the server understands the request but refuses to authorize it.
+      This status is similar to 401, but for the 403 Forbidden status code, re-authenticating makes no difference. The access is tied to the application logic, such as insufficient rights to a resource."
     documentation_url: https://tools.ietf.org/html/rfc7231#section-6.5.3
 
   NotFound:
@@ -201,6 +245,8 @@ codes:
     code: 404
     description: The origin server did not find a current representation for the target resource or is not willing to disclose that one exists.
     supplementary_description:
+      "The HTTP 404 Not Found response status code indicates that the server cannot find the requested resource.
+      A 404 status code only indicates that the resource is missing: not whether the absence is temporary or permanent. If a resource is permanently removed, use the 410 (Gone) status instead."
     documentation_url: https://tools.ietf.org/html/rfc7231#section-6.5.4
 
   MethodNotAllowed:
@@ -208,6 +254,8 @@ codes:
     code: 405
     description: The method received in the request-line is known by the origin server but not supported by the target resource.
     supplementary_description:
+      "The HyperText Transfer Protocol (HTTP) 405 Method Not Allowed response status code indicates that the server knows the request method, but the target resource doesn't support this method.
+      The server must generate an Allow header field in a 405 status code response. The field must contain a list of methods that the target resource currently supports."
     documentation_url: https://tools.ietf.org/html/rfc7231#section-6.5.5
 
   NotAcceptable:
@@ -215,6 +263,10 @@ codes:
     code: 406
     description: The target resource does not have a current representation that would be acceptable to the user agent, according to the proactive negotiation header fields received in the request, and the server is unwilling to supply a default representation.
     supplementary_description:
+      "The HyperText Transfer Protocol (HTTP) 406 Not Acceptable client error response code indicates that the server cannot produce a response matching the list of acceptable values defined in the request's proactive content negotiation headers,
+      and that the server is unwilling to supply a default representation.
+      In practice, this error is very rarely used. Instead of responding using this error code, which would be cryptic for the end user and difficult to fix, servers ignore the relevant header and serve an actual page to the user. It is assumed that even if the user won't be completely happy, they will prefer this to an error code.
+      If a server returns such an error status, the body of the message should contain the list of the available representations of the resources, allowing the user to choose among them."
     documentation_url: https://tools.ietf.org/html/rfc7231#section-6.5.6
 
   ProxyAuthenticationRequired:
@@ -222,6 +274,8 @@ codes:
     code: 407
     description: Similar to 401 Unauthorized, but it indicates that the client needs to authenticate itself in order to use a proxy.
     supplementary_description:
+      "The HTTP 407 Proxy Authentication Required client error status response code indicates that the request has not been applied because it lacks valid authentication credentials for a proxy server that is between the browser and the server that can access the requested resource.
+      This status is sent with a Proxy-Authenticate header that contains information on how to authorize correctly."
     documentation_url: https://tools.ietf.org/html/rfc7235#section-3.2
 
   RequestTimeout:
@@ -229,6 +283,9 @@ codes:
     code: 408
     description: The server did not receive a complete request message within the time that it was prepared to wait.
     supplementary_description:
+      "The HyperText Transfer Protocol (HTTP) 408 Request Timeout response status code means that the server would like to shut down this unused connection. It is sent on an idle connection by some servers, even without any previous request by the client.
+      A server should send the 'close' Connection header field in the response, since 408 implies that the server has decided to close the connection rather than continue waiting.
+      This response is used much more since some browsers, like Chrome, Firefox 27+, and IE9, use HTTP pre-connection mechanisms to speed up surfing."
     documentation_url: https://tools.ietf.org/html/rfc7231#section-6.5.7
 
   Conflict:
@@ -236,6 +293,8 @@ codes:
     code: 409
     description: The request could not be completed due to a conflict with the current state of the target resource. This code is used in situations where the user might be able to resolve the conflict and resubmit the request.
     supplementary_description:
+      "The HTTP 409 Conflict response status code indicates a request conflict with the current state of the target resource.
+      Conflicts are most likely to occur in response to a PUT request. For example, you may get a 409 response when uploading a file that is older than the existing one on the server, resulting in a version control conflict."
     documentation_url: https://tools.ietf.org/html/rfc7231#section-6.5.8
 
   Gone:
@@ -243,13 +302,15 @@ codes:
     code: 410
     description: The target resource is no longer available at the origin server and that this condition is likely to be permanent.
     supplementary_description:
+      "The HyperText Transfer Protocol (HTTP) 410 Gone client error response code indicates that access to the target resource is no longer available at the origin server and that this condition is likely to be permanent.
+      If you don't know whether this condition is temporary or permanent, a 404 status code should be used instead."
     documentation_url: https://tools.ietf.org/html/rfc7231#section-6.5.9
 
   LengthRequired:
     name: Length Required
     code: 411
     description: The server refuses to accept the request without a defined Content-Length
-    supplementary_description:
+    supplementary_description: "The HyperText Transfer Protocol (HTTP) 411 Length Required client error response code indicates that the server refuses to accept the request without a defined Content-Length header."
     documentation_url: https://tools.ietf.org/html/rfc7231#section-6.5.10
 
   PreconditionFailed:
@@ -257,13 +318,17 @@ codes:
     code: 412
     description: One or more conditions given in the request header fields evaluated to false when tested on the server.
     supplementary_description:
+      "The HyperText Transfer Protocol (HTTP) 412 Precondition Failed client error response code indicates that access to
+      the target resource has been denied. This happens with conditional requests on methods other than GET or HEAD when the condition defined by the
+      If-Unmodified-Since or If-None-Match headers is not fulfilled. In that case, the request, usually an upload or a modification of a resource,
+      cannot be made and this error response is sent back."
     documentation_url: https://tools.ietf.org/html/rfc7232#section-4.2
 
   PayloadTooLarge:
     name: Payload Too Large
     code: 413
     description: The server is refusing to process a request because the request payload is larger than the server is willing or able to process.
-    supplementary_description:
+    supplementary_description: "The HTTP 413 Content Too Large response status code indicates that the request entity is larger than limits defined by server; the server might close the connection or return a Retry-After header field."
     documentation_url: https://tools.ietf.org/html/rfc7231#section-6.5.11
 
   UriTooLong:
@@ -271,6 +336,11 @@ codes:
     code: 414
     description: The server is refusing to service the request because the request-target1 is longer than the server is willing to interpret.
     supplementary_description:
+      "The HTTP 414 URI Too Long response status code indicates that the URI requested by the client is longer than the server is willing to interpret.
+      There are a few rare conditions when this might occur:
+      when a client has improperly converted a POST request to a GET request with long query information,
+      when the client has descended into a loop of redirection (for example, a redirected URI prefix that points to a suffix of itself),
+      or when the server is under attack by a client attempting to exploit potential security holes."
     documentation_url: https://tools.ietf.org/html/rfc7231#section-6.5.12
 
   UnsupportedMediaType:
@@ -278,6 +348,8 @@ codes:
     code: 415
     description: The origin server is refusing to service the request because the payload is in a format not supported by this method on the target resource.
     supplementary_description:
+      "The HTTP 415 Unsupported Media Type client error response code indicates that the server refuses to accept the request because the payload format is in an unsupported format.
+      The format problem might be due to the request's indicated Content-Type or Content-Encoding, or as a result of inspecting the data directly."
     documentation_url: https://tools.ietf.org/html/rfc7231#section-6.5.13
 
   RangeNotSatisfiable:
@@ -285,6 +357,9 @@ codes:
     code: 416
     description: None of the ranges in the request’s Range header field1 overlap the current extent of the selected resource or that the set of ranges requested has been rejected due to invalid ranges or an excessive request of small or overlapping ranges.
     supplementary_description:
+      "The HyperText Transfer Protocol (HTTP) 416 Range Not Satisfiable error response code indicates that a server cannot serve the requested ranges. The most likely reason is that the document doesn't contain such ranges, or that the Range header value, though syntactically correct, doesn't make sense.
+      The 416 response message contains a Content-Range indicating an unsatisfied range (that is a '*') followed by a '/' and the current length of the resource. E.g. Content-Range: bytes */12777
+      Faced with this error, browsers usually either abort the operation (for example, a download will be considered as non-resumable) or ask for the whole document again."
     documentation_url: https://tools.ietf.org/html/rfc7233#section-4.4
 
   ExpectationFailed:
@@ -292,6 +367,8 @@ codes:
     code: 417
     description: The expectation given in the request’s Expect header field1 could not be met by at least one of the inbound servers.
     supplementary_description:
+      "The HTTP 417 Expectation Failed client error response code indicates that the expectation given in the request's Expect header could not be met.
+      See the Expect header for more details."
     documentation_url: https://tools.ietf.org/html/rfc7231#section-6.5.14
 
   ImATeapot:
@@ -299,13 +376,16 @@ codes:
     code: 418
     description: Any attempt to brew coffee with a teapot should result in the error code '418 I'm a teapot'. The resulting entity body MAY be short and stout.
     supplementary_description:
+      "The HTTP 418 I'm a teapot client error response code indicates that the server refuses to brew coffee because it is, permanently, a teapot.
+      A combined coffee/tea pot that is temporarily out of coffee should instead return 503. This error is a reference to Hyper Text Coffee Pot Control
+      Protocol defined in April Fools' jokes in 1998 and 2014."
     documentation_url: https://tools.ietf.org/html/rfc2324#section-2.3.2
 
   MisdirectedRequest:
     name: Misdirected Request
     code: 421
     description: The request was directed at a server that is not able to produce a response. This can be sent by a server that is not configured to produce responses for the combination of scheme and authority that are included in the request URI.
-    supplementary_description:
+    supplementary_description: "The HTTP 421 Misdirected Request client error response code indicates that the request was directed to a server that is not able to produce a response. This might be possible if a connection is reused or if an alternative service is selected."
     documentation_url: https://tools.ietf.org/html/rfc7540#section-9.1.2
 
   UnprocessableEntity:
@@ -313,13 +393,15 @@ codes:
     code: 422
     description: The server understands the content type of the request entity (hence a 415 Unsupported Media Type status code is inappropriate), and the syntax of the request entity is correct (thus a 400 Bad Request status code is inappropriate) but was unable to process the contained instructions.
     supplementary_description:
+      "The HyperText Transfer Protocol (HTTP) 422 Unprocessable Content response status code indicates that the server understands the content type of the request entity, and the syntax of the request entity is correct, but it was unable to process the contained instructions.
+      Warning: The client should not repeat this request without modification."
     documentation_url: https://tools.ietf.org/html/rfc4918#section-11.2
 
   Locked:
     name: Locked
     code: 423
     description: The source or destination resource of a method is locked.
-    supplementary_description:
+    supplementary_description: "The HTTP 423 Locked error response code indicates that either the resources tentatively targeted by is locked, meaning it can't be accessed. Its content should contain some information in WebDAV's XML format."
     documentation_url: https://tools.ietf.org/html/rfc4918#section-11.3
 
   FailedDependency:
@@ -327,6 +409,10 @@ codes:
     code: 424
     description: The method could not be performed on the resource because the requested action depended on another action and that action failed.
     supplementary_description:
+      "The HTTP 424 Failed Dependency client error response code indicates that the method could not be performed on the resource
+      because the requested action depended on another action, and that action failed.
+      Regular web servers will normally not return this status code. But some other protocols, like WebDAV, can return it. For example, in WebDAV,
+      if a PROPPATCH request was issued, and one command fails then automatically every other command will also fail with 424 Failed Dependency."
     documentation_url: https://tools.ietf.org/html/rfc4918#section-11.4
 
   UpgradeRequired:
@@ -334,6 +420,8 @@ codes:
     code: 426
     description: The server refuses to perform the request using the current protocol but might be willing to do so after the client upgrades to a different protocol.
     supplementary_description:
+      "The HTTP 426 Upgrade Required client error response code indicates that the server refuses to perform the request using the current protocol but might be willing to do so after the client upgrades to a different protocol.
+      The server sends an Upgrade header with this response to indicate the required protocol(s)."
     documentation_url: https://tools.ietf.org/html/rfc7231#section-6.5.15
 
   PreconditionRequired:
@@ -341,6 +429,9 @@ codes:
     code: 428
     description: The origin server requires the request to be conditional.
     supplementary_description:
+      "The HTTP 428 Precondition Required response status code indicates that the server requires the request to be conditional.
+      Typically, this means that a required precondition header, such as If-Match, is missing.
+      When a precondition header is not matching the server side state, the response should be 412 Precondition Failed."
     documentation_url: https://tools.ietf.org/html/rfc6585#section-3
 
   TooManyRequests:
@@ -348,6 +439,8 @@ codes:
     code: 429
     description: The user has sent too many requests in a given amount of time ('rate limiting').
     supplementary_description:
+      "The HTTP 429 Too Many Requests response status code indicates the user has sent too many requests in a given amount of time ('rate limiting').
+      A Retry-After header might be included to this response indicating how long to wait before making a new request."
     documentation_url: https://tools.ietf.org/html/rfc6585#section-4
 
   RequestHeaderFieldsTooLarge:
@@ -355,6 +448,11 @@ codes:
     code: 431
     description: The server is unwilling to process the request because its header fields are too large. The request MAY be resubmitted after reducing the size of the request header fields.
     supplementary_description:
+      "The HTTP 431 Request Header Fields Too Large response status code indicates that the server refuses to process the request because the request's HTTP headers are too long.
+      The request may be resubmitted after reducing the size of the request headers.
+      431 can be used when the total size of request headers is too large, or when a single header field is too large. To help those running into this error, indicate which of the
+      two is the problem in the response body — ideally, also include which headers are too large. This lets users attempt to fix the problem, such as by clearing their cookies.
+      Servers will often produce this status if: 1.The Referer URL is too long 2.There are too many Cookies sent in the request"
     documentation_url: https://tools.ietf.org/html/rfc6585#section-5
 
   UnavailableForLegalReasons:
@@ -362,6 +460,8 @@ codes:
     code: 451
     description: The server is denying access to the resource as a consequence of a legal demand.
     supplementary_description:
+      "The HyperText Transfer Protocol (HTTP) 451 Unavailable For Legal Reasons client error response code indicates that the user requested a resource that is not
+      available due to legal reasons, such as a web page for which a legal action has been issued."
     documentation_url: https://tools.ietf.org/html/rfc7725
 
   InternalServerError:
@@ -369,6 +469,9 @@ codes:
     code: 500
     description: The server encountered an unexpected condition that prevented it from fulfilling the request.
     supplementary_description:
+      "The HyperText Transfer Protocol (HTTP) 500 Internal Server Error server error response code indicates that the server encountered an unexpected condition that prevented it from fulfilling the request.
+      This error response is a generic 'catch-all' response. Usually, this indicates the server cannot find a better 5xx error code to response. Sometimes, server administrators log error responses like the 500 status code with more details
+      about the request to prevent the error from happening again in the future."
     documentation_url: https://tools.ietf.org/html/rfc7231#section-6.6.1
 
   NotImplemented:
@@ -376,6 +479,10 @@ codes:
     code: 501
     description: The server does not support the functionality required to fulfill the request.
     supplementary_description:
+      "The HyperText Transfer Protocol (HTTP) 501 Not Implemented server error response code means that the server does not support the functionality required to fulfill the request.
+      This status can also send a Retry-After header, telling the requester when to check back to see if the functionality is supported by then.
+      501 is the appropriate response when the server does not recognize the request method and is incapable of supporting it for any resource. The only methods that servers are required to support (and therefore that must not return 501) are GET and HEAD.
+      If the server does recognize the method, but intentionally does not support it, the appropriate response is 405 Method Not Allowed."
     documentation_url: https://tools.ietf.org/html/rfc7231#section-6.6.2
 
   BadGateway:
@@ -383,6 +490,8 @@ codes:
     code: 502
     description: The server, while acting as a gateway or proxy, received an invalid response from an inbound server it accessed while attempting to fulfill the request.
     supplementary_description:
+      "The HyperText Transfer Protocol (HTTP) 502 Bad Gateway server error response code indicates that the server, while acting as a gateway or proxy, received an invalid response from the upstream server.
+      Note: A Gateway might refer to different things in networking and a 502 error is usually not something you can fix, but requires a fix by the web server or the proxies you are trying to get access through."
     documentation_url: https://tools.ietf.org/html/rfc7231#section-6.6.3
 
   ServiceUnavailable:
@@ -390,6 +499,8 @@ codes:
     code: 503
     description: The server is currently unable to handle the request due to a temporary overload or scheduled maintenance, which will likely be alleviated after some delay.
     supplementary_description:
+      "The HyperText Transfer Protocol (HTTP) 503 Service Unavailable server error response code indicates that the server is not ready to handle the request.
+      Common causes are a server that is down for maintenance or that is overloaded. This response should be used for temporary conditions and the Retry-After HTTP header should, if possible, contain the estimated time for the recovery of the service."
     documentation_url: https://tools.ietf.org/html/rfc7231#section-6.6.4
 
   GatewayTimeout:
@@ -397,13 +508,15 @@ codes:
     code: 504
     description: The server, while acting as a gateway or proxy, did not receive a timely response from an upstream server it needed to access in order to complete the request.
     supplementary_description:
+      "The HyperText Transfer Protocol (HTTP) 504 Gateway Timeout server error response code indicates that the server, while acting as a gateway or proxy, did not get a response in time from the upstream server that it needed in order to complete the request.
+      Note: A Gateway might refer to different things in networking and a 504 error is usually not something you can fix, but requires a fix by the web server or the proxies you are trying to get access through."
     documentation_url: https://tools.ietf.org/html/rfc7231#section-6.6.5
 
   HttpVersionNotSupported:
     name: HTTP Version Not Supported
     code: 505
     description: The server does not support, or refuses to support, the major version of HTTP that was used in the request message.
-    supplementary_description:
+    supplementary_description: "The HyperText Transfer Protocol (HTTP) 505 HTTP Version Not Supported response status code indicates that the HTTP version used in the request is not supported by the server."
     documentation_url: https://tools.ietf.org/html/rfc7231#section-6.6.6
 
   VariantAlsoNegotiates:
@@ -411,13 +524,15 @@ codes:
     code: 506
     description: The server has an internal configuration error - the chosen variant resource is configured to engage in transparent content negotiation itself, and is therefore not a proper end point in the negotiation process.
     supplementary_description:
+      "The HyperText Transfer Protocol (HTTP) 506 Variant Also Negotiates response status code may be given in the context of Transparent Content Negotiation (see RFC 2295). This protocol enables a client to retrieve the best variant of a given resource, where the server supports multiple variants.
+      The Variant Also Negotiates status code indicates an internal server configuration error in which the chosen variant is itself configured to engage in content negotiation, so is not a proper negotiation endpoint."
     documentation_url: https://tools.ietf.org/html/rfc2295#section-8.1
 
   InsufficientStorage:
     name: Insufficient Storage
     code: 507
     description: The method could not be performed on the resource because the server is unable to store the representation needed to successfully complete the request.
-    supplementary_description:
+    supplementary_description: "The HyperText Transfer Protocol (HTTP) 507 Insufficient Storage response status code may be given in the context of the Web Distributed Authoring and Versioning (WebDAV) protocol"
     documentation_url: https://tools.ietf.org/html/rfc4918#section-11.5
 
   LoopDetected:
@@ -425,6 +540,8 @@ codes:
     code: 508
     description: The server terminated an operation because it encountered an infinite loop while processing a request with Depth infinity. This status indicates that the entire operation failed.
     supplementary_description:
+      "The HyperText Transfer Protocol (HTTP) 508 Loop Detected response status code may be given in the context of the Web Distributed Authoring and Versioning (WebDAV) protocol.
+      It indicates that the server terminated an operation because it encountered an infinite loop while processing a request with 'Depth: infinity'. This status indicates that the entire operation failed."
     documentation_url: https://tools.ietf.org/html/rfc5842#section-7.2
 
   NotExtended:
@@ -432,6 +549,9 @@ codes:
     code: 510
     description: The policy for accessing the resource has not been met in the request. The server should send back all the information necessary for the client to issue an extended request.
     supplementary_description:
+      "The HyperText Transfer Protocol (HTTP) 510 Not Extended response status code is sent in the context of the HTTP Extension Framework, defined in RFC 2774
+      In that specification a client may send a request that contains an extension declaration, that describes the extension to be used. If the server receives such a request, but any described
+      extensions are not supported for the request, then the server responds with the 510 status code."
     documentation_url: https://tools.ietf.org/html/rfc2774#section-7
 
   NetworkAuthenticationRequired:
@@ -439,4 +559,8 @@ codes:
     code: 511
     description: The client needs to authenticate to gain network access.
     supplementary_description:
+      "The HTTP 511 Network Authentication Required response status code indicates that the client needs to authenticate to gain network access.
+      This status is not generated by origin servers, but by intercepting proxies that control access to the network.
+      Network operators sometimes require some authentication, acceptance of terms, or other user interaction before granting access (for example in an internet café or at an airport).
+      They often identify clients who have not done so using their Media Access Control (MAC) addresses."
     documentation_url: https://tools.ietf.org/html/rfc6585#section-6
